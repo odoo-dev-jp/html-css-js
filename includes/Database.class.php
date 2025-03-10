@@ -1,8 +1,8 @@
 <?php
     class Database{
-        private $host = 'localhost:8889';
-        private $user = 'test';
-        private $password = 'test';
+        private $host = 'mysql:3306';
+        private $user = 'user';
+        private $password = 'password';
         private $database = 'code_pills';
 
         public function getConnection(){
