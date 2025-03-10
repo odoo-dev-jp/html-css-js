@@ -1,19 +1,19 @@
-const API_URL = 'http://localhost:8000/items';
-
-async function fetchItems() {
-    const response = await fetch(API_URL);
-    return response.json();
+async function fetchClients() {
+    const response = await fetch('api-rest/get_all_client.php');
+    const clients = await response.json();
+    return clients;
 }
 
-async function addItem(name) {
-    const response = await fetch(API_URL, {
+async function addClient(name) {
+    await fetch('api-rest/create_client.php', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name })
     });
-    return response.json();
 }
 
-async function deleteItem(id) {
-    await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+async function deleteClient(id) {
+    await fetch(`api-rest/delete_client.php?id=${id}`, {
+        method: 'DELETE'
+    });
 }
